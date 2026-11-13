@@ -1,6 +1,21 @@
 const canvasCont = document.querySelector("#canvas-container");
 let grid_size = 16;
 
+document.querySelector("#size_form").addEventListener("submit", (e) => {
+    e.preventDefault();   // stops the page from reloading
+    getInput();
+    e.target.reset();
+});
+
+function getRandomColor(){
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for(let i = 1; i <= 6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function getInput(){
     let inpt = document.querySelector("#grid_size").value;
     let inpt_size = parseInt(inpt, 10);
@@ -23,6 +38,7 @@ function creategrid(size){
         for(let j = 1; j<=size; j++){
             const square = document.createElement("div");
             square.classList.add("square");
+            square.addEventListener("mouseenter", () => square.style.backgroundColor = getRandomColor());
             row.appendChild(square);
         }
         canvasCont.appendChild(row);

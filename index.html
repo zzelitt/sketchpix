@@ -14,8 +14,10 @@
 
     <div class="main">
         <div id="input">
-            <input type="text" id="grid_size" placeholder="Enter grid size (max 100)">
-            <button onclick="getInput()" id="grid_button">Reset Grid size</button>
+            <form id="size_form">
+                <input type="text" id="grid_size" placeholder="Enter grid size (1 - 100)">
+                <button type="submit" id="grid_button">Reset Grid size</button>
+            </form>
         </div>
         <div id="canvas-container"></div>
     </div>
