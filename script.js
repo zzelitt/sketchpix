@@ -1,0 +1,32 @@
+const canvasCont = document.querySelector("#canvas-container");
+let grid_size = 16;
+
+function getInput(){
+    let inpt = document.querySelector("#grid_size").value;
+    let inpt_size = parseInt(inpt, 10);
+
+    if(!(inpt_size >= 16) || !(inpt_size <= 100)){
+        alert(`Minimum of 16 and maximum 100`);
+    }
+    else{
+        grid_size = inpt_size;
+        creategrid(grid_size);
+        console.log(inpt_size)
+    }
+}
+
+function creategrid(size){
+    canvasCont.innerHTML = "";
+    for(let i = 1; i<=size; i++){
+        const row = document.createElement("div");
+        row.classList.add("row");
+        for(let j = 1; j<=size; j++){
+            const square = document.createElement("div");
+            square.classList.add("square");
+            row.appendChild(square);
+        }
+        canvasCont.appendChild(row);
+    }
+}
+
+creategrid(grid_size);
