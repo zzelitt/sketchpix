@@ -1,8 +1,30 @@
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////// VARIABLE DECLARATION 
+////////////////////////////////////////////////////////////////////////////
+
+
 const canvasCont = document.querySelector("#canvas-container");
 let grid_size = 16;
+var randomMode = false;
+
+let btn_rand = document.querySelector("#randomMode");
+let btn_norm = document.querySelector("#normalMode");
+let clear = document.querySelector("#clear_canvas");
+
+clear.addEventListener("click", () => creategrid(grid_size));
+
+btn_rand.addEventListener("click", () => randomMode = true);
+btn_norm.addEventListener("click", () => randomMode = false);
+
+creategrid(grid_size);
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////// FUNCTIONS
+////////////////////////////////////////////////////////////////////////////
 
 document.querySelector("#size_form").addEventListener("submit", (e) => {
-    e.preventDefault();   // stops the page from reloading
+    e.preventDefault();
     getInput();
     e.target.reset();
 });
@@ -26,7 +48,6 @@ function getInput(){
     else{
         grid_size = inpt_size;
         creategrid(grid_size);
-        console.log(inpt_size)
     }
 }
 
@@ -38,11 +59,16 @@ function creategrid(size){
         for(let j = 1; j<=size; j++){
             const square = document.createElement("div");
             square.classList.add("square");
-            square.addEventListener("mouseenter", () => square.style.backgroundColor = getRandomColor());
+            square.addEventListener("mouseenter", function (){
+                if(randomMode){
+                    square.style.backgroundColor = getRandomColor();
+                }
+                else{
+                    square.style.backgroundColor = "#575453";
+                }
+            });
             row.appendChild(square);
         }
         canvasCont.appendChild(row);
     }
 }
-
-creategrid(grid_size);

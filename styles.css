@@ -46,9 +46,16 @@ body{
     margin-bottom: 10px;
 }
 
-#grid_button{
+#grid_button,
+#clear_canvas{
     margin-left: 10px;
     padding: 4px 10px;
+    margin-top: 5px;
+}
+
+#input{
+    display: flex;
+    padding: 0px 50px;
 }
 
 #canvas-container{
@@ -58,4 +65,9 @@ body{
     flex-direction: column;
     width: min(80vw, 80vh);
     aspect-ratio: 1/1;
+}
+
+#modes{
+    margin-bottom: 10px;
+    text-align: center;
 }

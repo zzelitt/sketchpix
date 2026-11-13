@@ -13,11 +13,16 @@
     </div>
 
     <div class="main">
+        <div id="modes">
+            <button id="randomMode">Random Color Mode</button>
+            <button id="normalMode">Normal Mode</button>
+        </div>
         <div id="input">
             <form id="size_form">
-                <input type="text" id="grid_size" placeholder="Enter grid size (1 - 100)">
+                <input type="text" id="grid_size" placeholder="Enter grid size (16 - 100)">
                 <button type="submit" id="grid_button">Reset Grid size</button>
             </form>
+            <button id="clear_canvas">Clear Canvas</button>
         </div>
         <div id="canvas-container"></div>
     </div>
