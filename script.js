@@ -12,7 +12,9 @@ let btn_rand = document.querySelector("#randomMode");
 let btn_norm = document.querySelector("#normalMode");
 let clear = document.querySelector("#clear_canvas");
 
-clear.addEventListener("click", () => creategrid(grid_size));
+clear.addEventListener("click", () => {
+    creategrid(grid_size)
+});
 
 btn_rand.addEventListener("click", () => randomMode = true);
 btn_norm.addEventListener("click", () => randomMode = false);
